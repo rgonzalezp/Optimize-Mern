@@ -36,7 +36,7 @@ accountRouter.put("/:id", (req,res,next) => {
 	const stringName = req.body.name;
 	const stringContent = req.body.content;
 
-	const account = Account.findByIdAndUpdate(
+	const account = Account.findOneAndUpdate(
 		req.params.id,
 		{$push: 
 			{ "plans": 
@@ -46,10 +46,13 @@ accountRouter.put("/:id", (req,res,next) => {
 			 	}
 			 }
 		},
-		{safe: true, upsert: true})
-	.then(account => res.json(account))
-	.catch(err => console.log(err));
-	
+		{safe: true, upsert: true, new : true},
+		(err, account) => {
+        if(err)
+        	console.log(err)
+
+        res.json(account)
+    });
 });
 
 // @route 	DELETE api/accounts/:id
