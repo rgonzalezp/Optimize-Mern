@@ -1,6 +1,14 @@
 import React from 'react';
 import OktaAuth from '@okta/okta-auth-js';
 import { withAuth } from '@okta/okta-react';
+import {Container, 
+  Col, 
+  Form,
+  FormGroup, 
+  Label, 
+  Input,
+  Button
+} from "reactstrap";
 
 export default withAuth(
   class LoginForm extends React.Component {
@@ -57,30 +65,36 @@ export default withAuth(
       ) : null;
 
       return (
-        <form onSubmit={this.handleSubmit}>
-          {errorMessage}
-          <div className="form-element">
-            <label>Username:</label>
-            <input
-              id="username"
-              type="text"
-              value={this.state.username}
-              onChange={this.handleUsernameChange}
-            />
-          </div>
-
-          <div className="form-element">
-            <label>Password:</label>
-            <input
-              id="password"
-              type="password"
-              value={this.state.password}
-              onChange={this.handlePasswordChange}
-            />
-          </div>
-          <input id="submit" type="submit" value="Submit" />
-        </form>
-      );
+      <Container className="App">
+        <h2>Sign In</h2>
+        <Form className="form" onSubmit={this.handleSubmit}>
+          <Col>
+            <FormGroup>
+              <Label>Email</Label>
+              <Input
+                id="username"
+                type="text"
+                value={this.state.username}
+                onChange={this.handleUsernameChange}
+              />
+              <FormText>Your username is most likely your email.</FormText>
+            </FormGroup>
+          </Col>
+          <Col>
+            <FormGroup>
+              <Label for="examplePassword">Password</Label>
+              <Input
+                id="password"
+                type="password"
+                value={this.state.password}
+                onChange={this.handlePasswordChange}
+              />
+            </FormGroup>
+          </Col>
+          <Button>Submit</Button>
+        </Form>
+      </Container>
+    );
     }
   }
 );

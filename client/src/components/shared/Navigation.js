@@ -1,4 +1,14 @@
 import React from 'react';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  Container
+} from "reactstrap";
 import { Link } from 'react-router-dom';
 import { withAuth } from '@okta/okta-react';
 
@@ -9,6 +19,16 @@ export default withAuth(
       this.state = { authenticated: null };
       this.checkAuthentication = this.checkAuthentication.bind(this);
       this.checkAuthentication();
+    }
+
+    state = {
+      isOpen: false
+    }
+
+    toggle = () => {
+      this.setState({
+        isOpen: !this.state.isOpen
+      });
     }
 
     async checkAuthentication() {
@@ -25,43 +45,59 @@ export default withAuth(
     render() {
       if (this.state.authenticated === null) return null;
       const authNav = this.state.authenticated ? (
-        <ul className="auth-nav">
-          <li>
-            <a
-              href="javascript:void(0)"
-              onClick={() => this.props.auth.logout()}
-            >
+
+        <div>
+        <Navbar color="dark" dark expand="sm" className="mb-5">
+          <Container>
+            <NavbarBrand href="/"> Optimize </NavbarBrand>
+            <NavbarToggler onClick={this.toggle}/>
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav className="ml-auto" navbar>
+              <NavItem className="auth-nav">
+                  <NavLink href="/"
+              onClick={() => this.props.auth.logout()}>
               Logout
-            </a>
-          </li>
-          <li>
-            <Link to="/profile">Profile</Link>
-          </li>
-        </ul>
+              </NavLink>
+                </NavItem>
+                <NavItem className="auth-nav">
+                <NavLink href="/profile">
+                Profile
+                </NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Container>
+        </Navbar>
+      </div>
       ) : (
-        <ul className="auth-nav">
-          <li>
-            <a
-              href="javascript:void(0)"
-              onClick={() => this.props.auth.login()}
-            >
+      <div>
+        <Navbar color="dark" dark expand="sm" className="mb-5">
+          <Container>
+            <NavbarBrand href="/"> Optimize </NavbarBrand>
+            <NavbarToggler onClick={this.toggle}/>
+            <Collapse isOpen={this.state.isOpen} navbar>
+              <Nav className="ml-auto" navbar>
+                <NavItem className="auth-nav">
+                  <NavLink href="javascript:void(0)"
+              onClick={() => this.props.auth.login()}>
               Login
-            </a>
-          </li>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
-        </ul>
+              </NavLink>
+                </NavItem>
+                <NavItem className="auth-nav">
+                <NavLink href="/register">
+                Register
+                </NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Container>
+        </Navbar>
+      </div>
       );
       return (
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            {authNav}
-          </ul>
-        </nav>
+        <div>
+            {authNav}      
+        </div>
       );
     }
   }

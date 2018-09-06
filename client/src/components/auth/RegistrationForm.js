@@ -1,6 +1,14 @@
 import React from 'react';
 import OktaAuth from '@okta/okta-auth-js';
 import { withAuth } from '@okta/okta-react';
+import {Container, 
+  Col, 
+  Form,
+  FormGroup, 
+  Label, 
+  Input,
+  Button
+} from "reactstrap";
 
 import config from '../../configfile';
 
@@ -82,45 +90,56 @@ export default withAuth(
       }
 
       return (
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-element">
-            <label>Email:</label>
-            <input
-              type="email"
-              id="email"
-              value={this.state.email}
-              onChange={this.handleEmailChange}
-            />
-          </div>
-          <div className="form-element">
-            <label>First Name:</label>
-            <input
-              type="text"
-              id="firstName"
-              value={this.state.firstName}
-              onChange={this.handleFirstNameChange}
-            />
-          </div>
-          <div className="form-element">
-            <label>Last Name:</label>
-            <input
-              type="text"
-              id="lastName"
-              value={this.state.lastName}
-              onChange={this.handleLastNameChange}
-            />
-          </div>
-          <div className="form-element">
-            <label>Password:</label>
-            <input
-              type="password"
-              id="password"
-              value={this.state.password}
-              onChange={this.handlePasswordChange}
-            />
-          </div>
-          <input type="submit" id="submit" value="Register" />
-        </form>
+        <Container className="App">
+        <h2>Register</h2>
+        <Form className="form" onSubmit={this.handleSubmit}>
+          <Col>
+            <FormGroup>
+              <Label>Email</Label>
+              <Input
+                type="email"
+                id="email"
+                value={this.state.email}
+                onChange={this.handleEmailChange}
+              />
+            </FormGroup>
+          </Col>
+          <Col>
+            <FormGroup>
+              <Label for="examplePassword">First Name</Label>
+              <Input
+                type="text"
+                id="firstName"
+                value={this.state.firstName}
+                onChange={this.handleFirstNameChange}
+              />
+            </FormGroup>
+          </Col>
+          <Col>
+            <FormGroup>
+              <Label>Last Name</Label>
+              <Input
+                type="text"
+                id="lastName"
+                value={this.state.lastName}
+                onChange={this.handleLastNameChange}
+              />
+            </FormGroup>
+          </Col>
+          <Col>
+            <FormGroup>
+              <Label>Password</Label>
+              <Input
+                type="password"
+                id="password"
+                value={this.state.password}
+                onChange={this.handlePasswordChange}
+              />
+            </FormGroup>
+          </Col>
+          <Button>Submit</Button>
+        </Form>
+      </Container>
       );
     }
   }

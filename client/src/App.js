@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import AppNavbar from "./components/AppNavbar";
 import { Route } from 'react-router-dom';
 import { SecureRoute, ImplicitCallback } from '@okta/okta-react';
 
@@ -16,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AppNavbar/>
+        <Navigation/>
         <main>
           <Route path="/" exact component={HomePage} />
           <Route
@@ -27,7 +26,7 @@ class App extends Component {
           <Route path="/register" component={RegistrationForm} />
           <SecureRoute path="/profile" component={ProfilePage} />
         </main>
-        <Navigation />
+
       </div>
     );
   }

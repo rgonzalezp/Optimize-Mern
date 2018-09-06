@@ -11,7 +11,7 @@ import {
 } from "reactstrap";
 
 //Collapsible Navbar component
-class AppNavbar extends Component {
+class AppNavbarStandalone extends Component {
 	state = {
 		isOpen: false
 	}
@@ -45,4 +45,4 @@ class AppNavbar extends Component {
 	}
 }
 
-export default AppNavbar;
+export default AppNavbarStandalone;
