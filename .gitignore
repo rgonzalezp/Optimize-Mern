@@ -9,4 +9,4 @@
 /build
 
 #keys for accounts
-/config/keys.**
+/config/keys.js
