@@ -4,7 +4,7 @@
   "description": "Optimize application to find quickest routes in graphs, built with the MERN stack",
   "main": "server.js",
   "scripts": {
-  	"client-install": "npm install --prefix client",
+    "client-install": "npm install --prefix client",
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
@@ -13,6 +13,7 @@
   "author": "Ricardo Gonzalez, Santiago Munera",
   "license": "MIT",
   "dependencies": {
+    "@okta/okta-sdk-nodejs": "^1.2.0",
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
     "express": "^4.16.3",
