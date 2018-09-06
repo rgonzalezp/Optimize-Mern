@@ -1,4 +1,4 @@
-oktaClient.js
+/lib/oktaClient.js
 # dependencies
 /node_modules
 
@@ -9,4 +9,4 @@ oktaClient.js
 /build
 
 #keys for accounts
-keys.**
+/config/keys.**
