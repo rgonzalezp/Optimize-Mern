@@ -1,5 +1,6 @@
 const express = require("express");
 const accountRouter = express.Router();
+const oktaClient = require('../../lib/oktaClient');
 
 // Account Model, to make queries to DB
 const Account = require("../../models/Account");
@@ -16,14 +17,32 @@ accountRouter.get("/", (req,res,next) => {
 // @desc 	Create a new account
 // @access 	Public
 accountRouter.post("/", (req,res,next) => {
-	const newAccount = new Account({
-		username: req.body.username ,
-		password: req.body.password,
-		email: req.body.email,
-		institution: req.body.institution
-	});
+	if (!req.body) return res.sendStatus(400);
+	const newUser = {
+		profile: {
+			firstName: req.body.firstName,
+			lastName: req.body.lastName,
+			email: req.body.email,
+			login: req.body.email
+		},
+		credentials: {
+			password: {
+				value: req.body.password
+			}
+		}
+	};
+//authentication user
+	oktaClient
+    .createUser(newUser)
+    .then(user => {
+      res.status(201);
+      res.send(user);
+    })
+    .catch(err => {
+      res.status(400);
+      res.send(err);
+    });
 
-	newAccount.save().then(account => res.json(account));
 });
 
 // @route 	PUT api/accounts/:id
