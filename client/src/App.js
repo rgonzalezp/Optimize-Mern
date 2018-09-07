@@ -11,7 +11,7 @@ import ProfilePage from './components/auth/ProfilePage';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import './components/home/HomePage.css';
-//a
+
 class App extends Component {
   render() {
     return (
