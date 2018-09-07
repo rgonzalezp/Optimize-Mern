@@ -79,14 +79,14 @@ export default withAuth(
               <Nav className="ml-auto" navbar>
                 <NavItem className="auth-nav">
                   <NavLink href="javascript:void(0)"
-              onClick={() => this.props.auth.login()}>
-              Login
-              </NavLink>
+                  onClick={() => this.props.auth.login()}>
+                  Login
+                  </NavLink>
                 </NavItem>
                 <NavItem className="auth-nav">
-                <NavLink href="/register">
-                Register
-                </NavLink>
+                  <NavLink href="/register">
+                  Register
+                  </NavLink>
                 </NavItem>
               </Nav>
             </Collapse>

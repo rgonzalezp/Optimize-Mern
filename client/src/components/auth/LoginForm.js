@@ -7,6 +7,7 @@ import {Container,
   FormGroup, 
   Label, 
   Input,
+  FormText,
   Button
 } from "reactstrap";
 
@@ -70,7 +71,7 @@ export default withAuth(
         <Form className="form" onSubmit={this.handleSubmit}>
           <Col>
             <FormGroup>
-              <Label>Email</Label>
+              <Label>Username</Label>
               <Input
                 id="username"
                 type="text"
