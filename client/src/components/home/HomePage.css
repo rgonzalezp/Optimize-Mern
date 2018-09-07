@@ -1,0 +1,13 @@
+.card-body .card-title,
+.card-body .card-subtitle{
+	text-align: center;
+}
+
+.card-body .justify{
+	
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
