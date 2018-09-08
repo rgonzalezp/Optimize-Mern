@@ -42,7 +42,7 @@ constructor(props) {
     <Col xs="12" sm="8">
       <Jumbotron className="border border-secondary">
         <h1 className="display-3">Ready to optimize?</h1>
-        <p className="lead">This application focuses on saving your very valuable time. <br/>You may ask, how can you do that? <br/>Well my dear friend, tell us a bit about yourself, and we will tell you the best route where to keep your things in your University.</p>
+        <p className="lead">Optimize is an application focuses on saving your very valuable time. <br/>You may ask, how can you do that? <br/>Well my dear friend, tell us a bit about yourself, and we will tell you the best route where to keep your things in your University.</p>
         <CardImg src={require("../../resources/graph.png")}alt="Card image cap" />
         <hr className="my-2" />
         <p className="justify">A small taste of the application appearance. (experimental)<br/></p>

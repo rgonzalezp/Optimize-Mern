@@ -12,8 +12,7 @@ import {
 import { Link } from 'react-router-dom';
 import { withAuth } from '@okta/okta-react';
 
-export default withAuth(
-  class Navigation extends React.Component {
+class Navigation extends React.Component {
     constructor(props) {
       super(props);
       this.state = { authenticated: null };
@@ -57,11 +56,16 @@ export default withAuth(
                   <NavLink href="/"
               onClick={() => this.props.auth.logout()}>
               Logout
-              </NavLink>
+                </NavLink>
                 </NavItem>
                 <NavItem className="auth-nav">
                 <NavLink href="/profile">
                 Profile
+                </NavLink>
+                </NavItem>
+                 <NavItem className="auth-nav">
+                <NavLink href="/plans">
+                Plans
                 </NavLink>
                 </NavItem>
               </Nav>
@@ -101,4 +105,4 @@ export default withAuth(
       );
     }
   }
-);
+export default withAuth(Navigation);

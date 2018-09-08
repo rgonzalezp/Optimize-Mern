@@ -8,6 +8,7 @@ import RegistrationForm from './components/auth/RegistrationForm';
 import config from './configfile';
 import LoginPage from './components/auth/LoginPage';
 import ProfilePage from './components/auth/ProfilePage';
+import PlansPage from './components/auth/PlansPage';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import './components/home/HomePage.css';
@@ -26,6 +27,7 @@ class App extends Component {
           <Route path="/implicit/callback" component={ImplicitCallback} />
           <Route path="/register" component={RegistrationForm} />
           <SecureRoute path="/profile" component={ProfilePage} />
+          <SecureRoute path="/plans" component={PlansPage} />
         </main>
 
       </div>

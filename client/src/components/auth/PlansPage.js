@@ -1,8 +1,7 @@
 import React from 'react';
 import { withAuth } from '@okta/okta-react';
 
-
-  class ProfilePage extends React.Component {
+class PlansPage extends React.Component {
     constructor(props) {
       super(props);
       this.state = { user: null };
@@ -21,7 +20,7 @@ import { withAuth } from '@okta/okta-react';
       if (!this.state.user) return null;
       return (
         <section className="user-profile">
-          <h1>User Profile</h1>
+          <h1>Your plans</h1>
           <div>
             <label>Name:</label>
             <span>{this.state.user.name}</span>
@@ -29,6 +28,5 @@ import { withAuth } from '@okta/okta-react';
         </section>
       );
     }
-  }
-  
-export default withAuth(ProfilePage);
+  } 
+export default withAuth(PlansPage);
