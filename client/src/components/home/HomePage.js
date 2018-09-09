@@ -19,12 +19,30 @@ import {
 import Button from '@material-ui/core/Button';
 import Navigation from '../shared/Navigation';
 import kaching from "../../resources/kaching.mp3";
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+
+const themeColor = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#424242',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#ff7961',
+      main: '#f44336',
+      dark: '#ba000d',
+      contrastText: '#000',
+    }
+  }
+});
 
 class HomePage extends React.Component {
 
 constructor(props) {
     super(props);
-    this.state = { play: true };
+    this.state = { play: true ,loading: true};
     this.audio = new Audio(kaching);
     this.togglePlay = this.togglePlay.bind(this);
   }
@@ -36,7 +54,16 @@ constructor(props) {
     this.state.play ? this.audio.play() : this.audio.pause();
   }
 
+  componentDidMount() {
+    setTimeout(() => this.setState({ loading: false }), 1000); // simulates an async action, and hides the spinner
+  }
+
   render() {
+  	 const { loading } = this.state;
+    
+    if(loading) { // if your component doesn't have to wait for an async action, remove this block 
+      return <MuiThemeProvider theme={themeColor}><CircularProgress className="centered" size={80} color="primary"></CircularProgress></MuiThemeProvider>; // render null when app is not ready
+    }
     return  <div>
     <Navigation/>
     <Container>
@@ -98,7 +125,7 @@ constructor(props) {
         </CardBody>
       </Card>
      
-     
+  
       </Col>
       </Row>
       </Container>
