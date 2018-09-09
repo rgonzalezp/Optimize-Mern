@@ -1,5 +1,6 @@
 import React from 'react';
 import OktaAuth from '@okta/okta-auth-js';
+import Navigation from '../shared/Navigation';
 import { withAuth } from '@okta/okta-react';
 import {Container, 
   Col, 
@@ -90,7 +91,10 @@ export default withAuth(
       }
 
       return (
+        <div>
+        <Navigation/>
         <Container className="App">
+        
         <h2>Register</h2>
         <Form className="form" onSubmit={this.handleSubmit}>
           <Col>
@@ -140,6 +144,7 @@ export default withAuth(
           <Button>Submit</Button>
         </Form>
       </Container>
+      </div>
       );
     }
   }

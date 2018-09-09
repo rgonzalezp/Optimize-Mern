@@ -13,3 +13,9 @@ margin-right: 5%;
 margin-left: 5%;
 max-width: 90%;
 }
+
+.home-buttons{
+	background-color: #424242!important;
+	outline-style: solid;
+	color:white!important;
+}

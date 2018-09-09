@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import LoginForm from './LoginForm';
+import Navigation from '../shared/Navigation';
 import { withAuth } from '@okta/okta-react';
 
 export default withAuth(class Login extends Component {
@@ -25,9 +26,11 @@ export default withAuth(class Login extends Component {
   render() {
     if (this.state.authenticated === null) return null;
     return this.state.authenticated ?
-      
       <Redirect to={{ pathname: '/profile' }} /> :
-      <LoginForm baseUrl={this.props.baseUrl} />;
+      <div>
+      <Navigation/>
+      <LoginForm baseUrl={this.props.baseUrl} />
+      </div>;
       
   }
 });

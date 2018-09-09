@@ -1,4 +1,5 @@
 import React from 'react';
+import Navigation from '../shared/Navigation';
 import { withAuth } from '@okta/okta-react';
 
 
@@ -21,6 +22,7 @@ import { withAuth } from '@okta/okta-react';
       if (!this.state.user) return null;
       return (
         <section className="user-profile">
+        <Navigation/>
           <h1>User Profile</h1>
           <div>
             <label>Name:</label>
@@ -30,5 +32,5 @@ import { withAuth } from '@okta/okta-react';
       );
     }
   }
-  
+
 export default withAuth(ProfilePage);
