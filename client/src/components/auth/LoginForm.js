@@ -7,11 +7,29 @@ import {Container,
   FormGroup, 
   Label, 
   Input,
-  FormText,
-  Button
+  Button,
+  FormText
 } from "reactstrap";
 
-export default withAuth(
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+
+const themeColor = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#424242',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#ff7961',
+      main: '#f44336',
+      dark: '#ba000d',
+      contrastText: '#000',
+    }
+  }
+});
+
+
   class LoginForm extends React.Component {
     constructor(props) {
       super(props);
@@ -92,10 +110,10 @@ export default withAuth(
               />
             </FormGroup>
           </Col>
-          <Button>Submit</Button>
+          <Button className="login-buttons">Let's go</Button>
         </Form>
       </Container>
     );
     }
   }
-);
+export default withAuth(LoginForm);

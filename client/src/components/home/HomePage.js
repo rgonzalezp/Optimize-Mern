@@ -20,8 +20,6 @@ import Button from '@material-ui/core/Button';
 import Navigation from '../shared/Navigation';
 import kaching from "../../resources/kaching.mp3";
 
-
-
 class HomePage extends React.Component {
 
 constructor(props) {

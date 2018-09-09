@@ -3,6 +3,24 @@ import { Redirect } from 'react-router-dom';
 import LoginForm from './LoginForm';
 import Navigation from '../shared/Navigation';
 import { withAuth } from '@okta/okta-react';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+const themeColor = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#424242',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#ff7961',
+      main: '#f44336',
+      dark: '#ba000d',
+      contrastText: '#000',
+    }
+  }
+});
+
 
 export default withAuth(class Login extends Component {
   constructor(props) {
@@ -24,7 +42,7 @@ export default withAuth(class Login extends Component {
   }
 
   render() {
-    if (this.state.authenticated === null) return null;
+    if (this.state.authenticated === null) return <MuiThemeProvider theme={themeColor}><CircularProgress className="centered" size={80} color="primary"></CircularProgress></MuiThemeProvider>;
     return this.state.authenticated ?
       <Redirect to={{ pathname: '/profile' }} /> :
       <div>

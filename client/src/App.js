@@ -11,6 +11,9 @@ import PlansPage from './components/auth/PlansPage';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import './components/home/HomePage.css';
+import './components/auth/PlansPage.css';
+import './components/auth/LoginForm.css';
+import './components/auth/RegistrationForm.css';
 
 class App extends Component {
   render() {

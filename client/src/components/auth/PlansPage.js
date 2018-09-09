@@ -11,13 +11,20 @@ import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { mainListItems, secondaryListItems } from './listItems';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import HomeIcon from '@material-ui/icons/Home';
+import PersonIcon from '@material-ui/icons/Person';
+import ViewCompactIcon from '@material-ui/icons/ViewCompact';
+import BarChartIcon from '@material-ui/icons/BarChart';
+import LayersIcon from '@material-ui/icons/Layers';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 
 const themeColor = createMuiTheme({
   palette: {
@@ -139,7 +146,7 @@ class PlansPage extends React.Component {
 
   render() {
     const { classes } = this.props;
-    if (!this.state.user) return <CircularProgress/>;
+    if (!this.state.user) return <MuiThemeProvider theme={themeColor}><CircularProgress className="centered" size={80} color="primary"></CircularProgress></MuiThemeProvider>;
     return (
       <React.Fragment>
         <CssBaseline />
@@ -182,7 +189,38 @@ class PlansPage extends React.Component {
               </IconButton>
             </div>
             <Divider />
-            <List>{mainListItems}</List>
+            <List><div>
+    <ListItem button component="a" href="/">
+      <ListItemIcon>
+        <HomeIcon />
+      </ListItemIcon>
+      <ListItemText primary="Home"/>
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <PersonIcon />
+      </ListItemIcon>
+      <ListItemText primary="Log out"  onClick={() => this.props.auth.logout()}/>
+    </ListItem>
+    <ListItem button component="a" href="/profile">
+      <ListItemIcon>
+        <ViewCompactIcon />
+      </ListItemIcon>
+      <ListItemText primary="Profile" />
+    </ListItem>
+    <ListItem button component="a" href="/">
+      <ListItemIcon>
+        <BarChartIcon />
+      </ListItemIcon>
+      <ListItemText primary="Favorites" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <LayersIcon />
+      </ListItemIcon>
+      <ListItemText primary="Something else" />
+    </ListItem>
+  </div></List>
             <Divider />
             <List></List>
           </Drawer>

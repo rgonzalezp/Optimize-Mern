@@ -6,14 +6,32 @@ import {Container,
   Col, 
   Form,
   FormGroup, 
-  Label, 
-  Input,
-  Button
+  Label,
+  Button, 
+  Input
 } from "reactstrap";
 
 import config from '../../configfile';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
-export default withAuth(
+
+const themeColor = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#424242',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#ff7961',
+      main: '#f44336',
+      dark: '#ba000d',
+      contrastText: '#000',
+    }
+  }
+});
+
+
   class RegistrationForm extends React.Component {
     constructor(props) {
       super(props);
@@ -87,7 +105,7 @@ export default withAuth(
     render() {
       if (this.state.sessionToken) {
         this.props.auth.redirect({ sessionToken: this.state.sessionToken });
-        return null;
+        return <MuiThemeProvider theme={themeColor}><CircularProgress className="centered" size={80} color="primary"></CircularProgress></MuiThemeProvider>;
       }
 
       return (
@@ -141,11 +159,11 @@ export default withAuth(
               />
             </FormGroup>
           </Col>
-          <Button>Submit</Button>
+          <Button className="registration-buttons">Let's go</Button>
         </Form>
       </Container>
       </div>
       );
     }
   }
-);
+export default withAuth(RegistrationForm);
