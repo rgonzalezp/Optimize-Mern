@@ -11,7 +11,7 @@ function onAuthRequired({ history }) {
   history.push('/login');
 }
 ReactDOM.render(
-	 <Router>
+  <Router>
     <Security
       issuer={config.issuer}
       client_id={config.client_id}

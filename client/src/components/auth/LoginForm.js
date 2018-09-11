@@ -9,7 +9,7 @@ import {Container,
   Input,
   Button,
   FormText
-} from "reactstrap";
+} from 'reactstrap';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
@@ -30,60 +30,60 @@ const themeColor = createMuiTheme({
 });
 
 
-  class LoginForm extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        sessionToken: null,
-        error: null,
-        username: '',
-        password: ''
-      };
+class LoginForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sessionToken: null,
+      error: null,
+      username: '',
+      password: ''
+    };
 
-      this.oktaAuth = new OktaAuth({ url: props.baseUrl });
+    this.oktaAuth = new OktaAuth({ url: props.baseUrl });
 
-      this.handleSubmit = this.handleSubmit.bind(this);
-      this.handleUsernameChange = this.handleUsernameChange.bind(this);
-      this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleUsernameChange = this.handleUsernameChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+  }
 
-    handleSubmit(e) {
-      e.preventDefault();
-      this.oktaAuth
-        .signIn({
-          username: this.state.username,
-          password: this.state.password
+  handleSubmit(e) {
+    e.preventDefault();
+    this.oktaAuth
+      .signIn({
+        username: this.state.username,
+        password: this.state.password
+      })
+      .then(res =>
+        this.setState({
+          sessionToken: res.sessionToken
         })
-        .then(res =>
-          this.setState({
-            sessionToken: res.sessionToken
-          })
-        )
-        .catch(err => {
-          this.setState({ error: err.message });
-          console.log(err.statusCode + ' error', err);
-        });
+      )
+      .catch(err => {
+        this.setState({ error: err.message });
+        console.log(err.statusCode + ' error', err);
+      });
+  }
+
+  handleUsernameChange(e) {
+    this.setState({ username: e.target.value });
+  }
+
+  handlePasswordChange(e) {
+    this.setState({ password: e.target.value });
+  }
+
+  render() {
+    if (this.state.sessionToken) {
+      this.props.auth.redirect({ sessionToken: this.state.sessionToken });
+      return null;
     }
 
-    handleUsernameChange(e) {
-      this.setState({ username: e.target.value });
-    }
+    const errorMessage = this.state.error ? (
+      <span className="error-message">{this.state.error}</span>
+    ) : null;
 
-    handlePasswordChange(e) {
-      this.setState({ password: e.target.value });
-    }
-
-    render() {
-      if (this.state.sessionToken) {
-        this.props.auth.redirect({ sessionToken: this.state.sessionToken });
-        return null;
-      }
-
-      const errorMessage = this.state.error ? (
-        <span className="error-message">{this.state.error}</span>
-      ) : null;
-
-      return (
+    return (
       <Container className="App">
         <h2>Sign In</h2>
         <Form className="form" onSubmit={this.handleSubmit}>
@@ -114,6 +114,6 @@ const themeColor = createMuiTheme({
         </Form>
       </Container>
     );
-    }
   }
+}
 export default withAuth(LoginForm);

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { SecureRoute, ImplicitCallback } from '@okta/okta-react';
 
@@ -8,8 +8,8 @@ import config from './configfile';
 import LoginPage from './components/auth/LoginPage';
 import ProfilePage from './components/auth/ProfilePage';
 import PlansPage from './components/auth/PlansPage';
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import './components/home/HomePage.css';
 import './components/auth/PlansPage.css';
 import './components/auth/LoginForm.css';
