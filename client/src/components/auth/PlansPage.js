@@ -170,7 +170,7 @@ class PlansPage extends React.Component {
                 <MenuIcon />
               </IconButton>
               <Typography variant="title" color="inherit" noWrap className={classes.title}>
-                Welcome to your Plans, {this.state.user.name}
+                Welcome to your Plans, {this.state.user.name}!
 
               </Typography>
             </Toolbar>

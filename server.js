@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 
 //Require the route to manage api
 const accounts = require("./routes/api/accounts");
+const blocks = require("./routes/api/blocks");
 
 const app = express();
 
@@ -21,6 +22,7 @@ mongoose
 
 // Use Routes
 app.use("/api/accounts",accounts);
+app.use("/api/map",blocks);
 
 //check this port for deployment
 const port = process.env.PORT || 5000;

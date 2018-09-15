@@ -1,39 +1,44 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+//Create GeoLocation Schema
+const GeoSchema = new Schema({
+	type:{
+		type: String,
+		default: "Point"
+	},
+  	coordinates:{
+  		type: [Number],
+  		index: "2dsphere"
+  	}
+});
+
 // Create Schema for floors
 
 const FloorSchema = new Schema({
+	number:{
+		type: Number,
+		required: false
+	}, 
 	lockers: {
 		type: Number,
-		required: true
+		required: false
 	},
 	availableLockers: {
 		type: Number,
-		required: true
+		required: false
 	}
 });
 
 // Create Schema for Building blocks
 
 const BlockSchema = new Schema({
-	image: {
-		type: String,
-		required: false
-	},
 	name: {
 		type: String,
 		required: false
 	},
-	latitude: {
-		type: Number,
-		required: false
-	},
-	longitude: {
-		type: Number,
-		required: false
-	},
-	floors: [FloorSchema]
+	floors: [FloorSchema],
+	geometry: GeoSchema
 });
 
 module.exports = Block = mongoose.model("block", BlockSchema);
