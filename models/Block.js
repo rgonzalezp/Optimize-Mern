@@ -23,10 +23,6 @@ const FloorSchema = new Schema({
 	lockers: {
 		type: Number,
 		required: false
-	},
-	availableLockers: {
-		type: Number,
-		required: false
 	}
 });
 
