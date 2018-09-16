@@ -1,26 +1,27 @@
 import {GET_PLANS, ADD_PLANS, DELETE_PLANS, PLANS_LOADING} from './types';
 import axios from 'axios';
 
-export const getPlans = () => dispatch => {
+export const getPlans = (email) => dispatch => {
   dispatch(setPlansLoading);
+  console.log(email);
   axios
-    .get('/api/plans')
+    .post('/api/plans', email)
     .then(res=>
-    	dispatch({
+      dispatch({
         type:GET_PLANS,
-    		payload: res.data
-    	})
-    	)
+        payload: res.data
+      }));
 };
 
 export const addPlan = (plan) => dispatch => {
+	console.log(plan);
   axios
-    .post('/api/plans', plan)
+    .put('/api/plans', plan)
     .then(res => 
-    	dispatch({
-    		type: ADD_PLANS,
-    		payload: res.data
-    	}));
+      dispatch({
+        type: ADD_PLANS,
+        payload: res.data
+      }));
 };
 
 export const deletePlan = (id) => dispatch => {

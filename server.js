@@ -1,10 +1,12 @@
+const path = require('path');
+const bb = ('express-busboy');
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
 //Require the route to manage api
-const accounts = require("./routes/api/accounts");
-const blocks = require("./routes/api/blocks");
+const blocks = require('./routes/api/blocks');
+const plans = require('./routes/api/plans');
 
 const app = express();
 
@@ -12,17 +14,18 @@ const app = express();
 app.use(bodyParser.json());
 
 // DB Config
-const db = require("./config/keys").mongoURI;
+const db = require('./config/keys').mongoURI;
 
 // Connection to Mongo
 mongoose
-	.connect(db,{ useNewUrlParser: true })
-	.then(() => console.log("MongoDB Connection Success..."))
-	.catch(err => console.log(err));
+  .connect(db,{ useNewUrlParser: true })
+  .then(() => console.log('MongoDB Connection Success...'))
+  .catch(err => console.log(err));
 
 // Use Routes
-app.use("/api/accounts",accounts);
-app.use("/api/map",blocks);
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/api/map',blocks);
+app.use('/api/plans',plans);
 
 //check this port for deployment
 const port = process.env.PORT || 5000;

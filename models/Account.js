@@ -2,17 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 
-const PlanSchema = new Schema({
-	name: {
-		type: String,
-		required: true
-	},
-	content: {
-		type: String,
-		required: true
-	}
-});
-
 // Create Schema for accounts
 
 const AccountSchema = new Schema({
@@ -31,8 +20,7 @@ const AccountSchema = new Schema({
 	institution: {
 		type: String,
 		required: true
-	},
-	plans:[PlanSchema]
+	}
 });
 
 module.exports = Account = mongoose.model("account", AccountSchema);

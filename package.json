@@ -14,10 +14,13 @@
   "license": "MIT",
   "dependencies": {
     "@okta/okta-sdk-nodejs": "^1.2.0",
+    "babel-preset-es2015-node6": "^0.4.0",
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
     "express": "^4.16.3",
-    "mongoose": "^5.2.12"
+    "mongoose": "^5.2.15",
+    "morgan": "^1.9.1",
+    "source-map-support": "^0.5.9"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
