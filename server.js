@@ -7,6 +7,8 @@ const bodyParser = require("body-parser");
 //Require the route to manage api
 const blocks = require('./routes/api/blocks');
 const plans = require('./routes/api/plans');
+const accounts = require('./routes/api/accounts');
+
 
 const app = express();
 
@@ -24,6 +26,7 @@ mongoose
 
 // Use Routes
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/api/accounts',accounts)
 app.use('/api/map',blocks);
 app.use('/api/plans',plans);
 
