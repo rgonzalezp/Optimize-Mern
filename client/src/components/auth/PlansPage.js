@@ -25,6 +25,9 @@ import ViewCompactIcon from '@material-ui/icons/ViewCompact';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import Plans from '../shared/Plans'
+import PlanModal from '../shared/PlanModal'
+import {Container} from 'reactstrap';
 
 const themeColor = createMuiTheme({
   palette: {
@@ -222,18 +225,19 @@ class PlansPage extends React.Component {
     </ListItem>
   </div></List>
             <Divider />
-            <List></List>
+            <List>
+            <Container>
+            <PlanModal {...this.state}/>
+            </Container>
+            </List>
           </Drawer>
           <main className={classes.content}>
             <div className={classes.appBarSpacer} />
-            <Typography variant="display1" gutterBottom>
-              Orders
-            </Typography>
+            <Container>
+            <Plans {...this.state}/>
+            </Container>
             <Typography component="div" className={classes.chartContainer}>
               
-            </Typography>
-            <Typography variant="display1" gutterBottom>
-              Products
             </Typography>
             <div className={classes.tableContainer}>
               

@@ -14,12 +14,16 @@ import './components/home/HomePage.css';
 import './components/auth/PlansPage.css';
 import './components/auth/LoginForm.css';
 import './components/auth/RegistrationForm.css';
+import {Provider} from 'react-redux';
+import store from './store';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+      <Provider store={store}>
         <main>
+        
           <Route path="/" exact component={HomePage} />
           <Route
             path="/login"
@@ -29,7 +33,9 @@ class App extends Component {
           <Route path="/register" component={RegistrationForm} />
           <SecureRoute path="/profile" component={ProfilePage} />
           <SecureRoute path="/plans" component={PlansPage} />
+        
         </main>
+        </Provider>
 
       </div>
     );
