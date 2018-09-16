@@ -1,11 +1,29 @@
 const express = require("express");
 const blockRouter = express.Router();
 
-// Account Model, to make queries to DB
+// Block Model, to make queries to DB
 const Block = require("../../models/Block");
 
 // @route 	GET api/accounts
-// @desc 	Get all accounts
+// @desc 	Get all blocks ordered for best plan
+// @access 	Public
+blockRouter.get("/blocks/best-plan", (req,res,next) => {
+	let x = 0;
+    let y = 0;
+    Block.find({})﻿.then(function(blocks){
+    	const blocksArray = blocks;
+    	for(let i = 0; i<blocksArray.length;i++){
+    		x += blocksArray[i].geometry.coordinates[0];
+    		y += blocksArray[i].geometry.coordinates[1];
+    	}
+    	x = x/blocksArray.length;
+    	y = y/blocksArray.length;
+    	res.send({coordx:x, coordy:y});
+    }).catch(next);
+});
+
+// @route 	GET api/accounts
+// @desc 	Get blocks near coordinates
 // @access 	Public
 blockRouter.get("/blocks", (req,res,next) => {
     Block.aggregate().near({
@@ -13,7 +31,7 @@ blockRouter.get("/blocks", (req,res,next) => {
     		'type': 'Point',
     		'coordinates': [parseFloat(req.query.lng), parseFloat(req.query.lat)]
    		},
-   		maxDistance: 10,
+   		maxDistance: 1000,
    		spherical: true,
    		distanceField: "dis"
   	})﻿.then(function(blocks){
@@ -30,43 +48,24 @@ blockRouter.post("/blocks", (req,res,next) => {
 	}).catch(next);
 });
 
-/*// @route 	PUT api/accounts/:id
-// @desc 	Create a plan for account
-// @access 	Public
-accountRouter.put("/blocks/:id", (req,res,next) => {
-
-//FIX BUG, not returning updated document.
-
-	const stringName = req.body.name;
-	const stringContent = req.body.content;
-
-	const account = Account.findOneAndUpdate(
-		req.params.id,
-		{$push: 
-			{ "plans": 
-				{ 
-					name: stringName,
-			 	  	content: stringContent
-			 	}
-			 }
-		},
-		{safe: true, upsert: true, new : true},
-		(err, account) => {
-        if(err)
-        	console.log(err)
-
-        res.json(account)
-    });
+// @route PUT api/blocks/:id
+// @desc Update an existing block
+// @access Public
+blockRouter.put("/blocks/:id", (req,res,next)=>{
+	Block.findByIdAndUpdate({_id:req.params.id},req.body).then(function(){
+		Block.findOne({_id:req.params.id}).then(function(block){
+			res.send(block);
+		});
+	});
 });
 
-// @route 	DELETE api/accounts/:id
-// @desc 	Delete an account
+// @route 	DELETE api/blocks/:id
+// @desc 	Delete an existing block
 // @access 	Public
-accountRouter.delete("/blocks/:id", (req,res,next) => {
-	Account.findById(req.params.id)
-		.then(account => account.remove().then(() => res.json({result: "success"})))
-		.catch(err => res.status(404).json({ result: "failed" }));
+blockRouter.delete("/blocks/:id", (req,res,next) => {
+	Block.findByIdAndRemove({_id:req.params.id}).then(function(block){
+		res.send(block);
+	});
 });
-//*/
 
 module.exports = blockRouter;
