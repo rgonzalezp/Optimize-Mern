@@ -1,8 +1,4 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
-/configfile.js
-
-#client config file
-/src/configfile.js
+# See https://help.github.com/ignore-files/ for more about ignoring
 
 # dependencies
 /node_modules
