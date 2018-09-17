@@ -14,6 +14,8 @@ import {
 	} from 'reactstrap';
 import {connect} from 'react-redux';
 import {addPlan} from '../../actions/planActions';
+import {getBlocks} from '../../actions/blockActions';
+import PropTypes from 'prop-types';
 
 class PlanModal extends Component {
 	constructor(props) {
@@ -22,7 +24,7 @@ class PlanModal extends Component {
   }
 	state = {
 		modal:false,
-		q:'default'
+		q:'default',
 	};
 
 	toggle = () => {
@@ -48,6 +50,13 @@ class PlanModal extends Component {
 
 		this.toggle();
 	}
+
+   componentDidUpdate() {
+
+      this.props.getBlocks();
+      console.log(this.props.getBlocks())
+    }
+
 	render() {
 		return (
 			<div>
@@ -247,7 +256,13 @@ class PlanModal extends Component {
 			);
 	}
 }
+
+PlanModal.propTypes = {
+  getBlocks: PropTypes.func.isRequired,
+  plan: PropTypes.object.isRequired
+};
 const mapStateToProps = state => ({
-	plan: state.plan
+	plan: state.plan,
+  block: state.block
 })
-export default connect(mapStateToProps, {addPlan})(PlanModal);
+export default connect(mapStateToProps, {addPlan,getBlocks})(PlanModal);

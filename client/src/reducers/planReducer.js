@@ -1,4 +1,4 @@
-import {GET_PLANS, ADD_PLANS, DELETE_PLANS, PLANS_LOADING} from '../actions/types';
+import {GET_PLANS, ADD_PLANS, DELETE_PLANS, PLANS_LOADING, BLOCKS_LOADING, GET_BLOCKS} from '../actions/types';
 
 
 const initialState = {
@@ -26,6 +26,18 @@ export default function(state = initialState, action) {
   			plans: [action.payload, ...state.plans]
   		}
   	}
+    case GET_BLOCKS: {
+      return{
+        ...state,
+        loading:true
+      }
+    }
+    case BLOCKS_LOADING: {
+      return{
+        ...state,
+        loading:true
+      }
+    }
   	case PLANS_LOADING: {
   		return{
   			...state,

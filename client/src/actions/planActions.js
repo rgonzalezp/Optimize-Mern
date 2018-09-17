@@ -1,4 +1,4 @@
-import {GET_PLANS, ADD_PLANS, DELETE_PLANS, PLANS_LOADING} from './types';
+import {GET_PLANS, ADD_PLANS, DELETE_PLANS, PLANS_LOADING,BLOCKS_LOADING,GET_BLOCKS} from './types';
 import axios from 'axios';
 
 export const getPlans = (email) => dispatch => {
@@ -31,8 +31,6 @@ export const deletePlan = (id) => dispatch => {
   		payload: id
   	}));
 };
-
-
 
 export const setPlansLoading = () => {
   return {
