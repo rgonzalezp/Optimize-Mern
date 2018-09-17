@@ -11,21 +11,20 @@ Optimize application developed with the MERN stack
 - [Copyright and license](#copyright-and-license)
 
 ## Objectives
-- 1
+- Show off programming and design abilities, building a full-stack fully functional application
 
-- 2
+- Create an useful tool that helps the community
 
-- 3
+- Make a website that can become bigger and expandible into new domains
 
-- 4
+- Have fun!
 
 ## Technologies
-- MERN Stack, mongodb, express, react, redux, reactstrap, node.js
-- mongoose,etc...
+- MERN Stack, mongodb, express, react, redux, reactstrap, node, material.ui, react-share, and many more libraries...
 
 ## Authors:
 - Ricardo Enrique Gonzalez Penuela: https://rgonzalezp.github.io/
-- Add Santiago Munera
+- Santiago Munera: https://sfmunera10.github.io/
 
 ## Quickstart:
 
@@ -38,10 +37,8 @@ Optimize application developed with the MERN stack
 - Save any changes to the files and the server will automatically notice changes and re-deploy
 - Also, make sure you are using a valid mongodb user @ config/keys.js
 
-## Documentation
-- 
-
 ## Preview
+//add preview
 
 ## Copyright and license
 Code Copyright 2018 Ricardo Enrique Gonzalez Peñuela, Santiago Munera. Code released under the MIT license.
