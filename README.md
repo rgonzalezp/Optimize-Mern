@@ -38,7 +38,7 @@ Optimize application developed with the MERN stack
 - Also, make sure you are using a valid mongodb user @ config/keys.js
 
 ## Preview
-//add preview
+![alt text](images/WebScreenshot.png "Preview of Optimize")
 
 ## Copyright and license
 Code Copyright 2018 Ricardo Enrique Gonzalez Peñuela, Santiago Munera. Code released under the MIT license.
