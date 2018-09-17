@@ -7,7 +7,11 @@ import {
 	Form,
 	FormGroup,
 	Label,
-	Input} from 'reactstrap';
+	Input,
+	Container,
+	Row,
+	Col
+	} from 'reactstrap';
 import {connect} from 'react-redux';
 import {addPlan} from '../../actions/planActions';
 
@@ -60,6 +64,178 @@ class PlanModal extends Component {
 			id="content"
 			placeholder="{Add your favorite places}"
 			onChange={this.onChange}/>
+			<Container>
+        		<Row>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+        		</Row>
+        		<Row>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+        		</Row>
+        		<Row>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+        		</Row>
+        		<Row>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+        		</Row>
+        		<Row>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+          			<Col>
+          				<FormGroup check>
+          				<Label check>
+            			<Input type="checkbox" />{' '}
+            			Check me out
+          				</Label>
+        				</FormGroup>
+          			</Col>
+        		</Row>
+        	</Container>
 			<Button color= "dark"
 			style={{marginTop:'2rem'}}
 			block>Submit places</Button>
