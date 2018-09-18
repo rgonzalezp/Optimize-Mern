@@ -27,104 +27,8 @@ import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import Plans from '../shared/Plans'
 import PlanModal from '../shared/PlanModal'
+import Map from '../shared/Map'
 import {Container} from 'reactstrap';
-import {withScriptjs,withGoogleMap,GoogleMap,Marker} from "react-google-maps";
-
-
-var goldStar = {
-          path: 'M -2,0 0,-2 2,0 0,2 z',
-          fillColor: 'white',
-          fillOpacity: 0.8,
-          scale: 15,
-          strokeColor: 'dimgrey',
-          strokeWeight: 3
-        };
-
-const MapWithAMarker = withScriptjs(withGoogleMap(props =>
-
-  <GoogleMap
-    defaultZoom={18}
-    defaultCenter={{ lat: 4.602080893312928, lng: -74.0652644634247 }}
-  >
-    <Marker icon={goldStar}
-      label={"ML"}
-      position={{ lat: 4.60284018436808, lng: -74.06488895416261  }}
-    />
-    <Marker icon={goldStar}
-      label={"Y"}
-      position={{ lat: 4.602321513805402, lng: -74.06533420085908  }}
-    />
-    <Marker icon={goldStar}
-      label={"LL"}
-      position={{ lat: 4.602150405907995, lng: -74.06509816646577  }}
-    />
-    <Marker icon={goldStar}
-      label={"W"}
-      position={{ lat: 4.602091587558756, lng: -74.06498014926912  }}
-    />
-    <Marker icon={goldStar}
-      label={"Z"}
-      position={{ lat: 4.602407067738685, lng: -74.06556487083436  }}
-    />
-    <Marker icon={goldStar}
-      label={"S1"}
-      position={{ lat: 4.601824231364621, lng: -74.06416475772859  }}
-    />
-    <Marker icon={goldStar}
-      label={"Rga"}
-      position={{ lat: 4.601989992216827, lng: -74.06604230403902  }}
-    />
-    <Marker icon={goldStar}
-      label={"Au"}
-      position={{ lat: 4.602658382358213, lng: -74.06639635562898  }}
-    />
-    <Marker icon={goldStar}
-      label={"K2"}
-      position={{ lat: 4.601332295705055, lng: -74.06452417373659  }}
-    />
-    <Marker icon={goldStar}
-      label={"R"}
-      position={{ lat: 4.601621040589925, lng: -74.06386971473695  }}
-    />
-    <Marker icon={goldStar}
-      label={"B"}
-      position={{ lat: 4.60146062677946, lng: -74.06569898128511  }}
-    />
-    <Marker icon={goldStar}
-      label={"C"}
-      position={{ lat: 4.601139799050085, lng: -74.06492650508882  }}
-    />
-    <Marker icon={goldStar}
-      label={"G"}
-      position={{ lat: 4.601567569323786, lng: -74.0660208463669  }}
-    />
-    <Marker icon={goldStar}
-      label={"SD"}
-      position={{ lat: 4.604417582209825, lng: -74.06586527824403  }}
-    />
-    <Marker icon={goldStar}
-      label={"Tx"}
-      position={{ lat: 4.60111841052965, lng: -74.06370878219606  }}
-    />
-    <Marker icon={goldStar}
-      label={"O"}
-      position={{ lat: 4.600674598585696, lng: -74.06497478485109  }}
-    />
-    <Marker icon={goldStar}
-      label={"Pu"}
-      position={{ lat: 4.6012307002547574, lng: -74.06666457653047  }}
-    />
-    <Marker icon={goldStar}
-      label={"M"}
-      position={{ lat: 4.600695987119451, lng: -74.06617105007173  }}
-    />
-    <Marker icon={goldStar}
-      label={"Q"}
-      position={{ lat: 4.600230786365085, lng: -74.06518399715425  }}
-    />
-  </GoogleMap>
-));
-
 
 const themeColor = createMuiTheme({
   palette: {
@@ -330,12 +234,6 @@ class PlansPage extends React.Component {
           <main className={classes.content}>
             <div className={classes.appBarSpacer} />
             <Container>
-            <MapWithAMarker
-              googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBT3yuFUUiTjKVE_8QHsTZD_Q11xKiMbto&v=3.exp&libraries=geometry,drawing,places"
-              loadingElement={<div style={{ height: `100%` }} />}
-              containerElement={<div style={{ height: `600px` }} />}
-              mapElement={<div style={{ height: `100%` }} />}
-            />
             <Plans {...this.state}/>
             </Container>
             <Typography component="div" className={classes.chartContainer}>
@@ -352,7 +250,7 @@ class PlansPage extends React.Component {
 }
 
 PlansPage.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(withAuth(PlansPage));

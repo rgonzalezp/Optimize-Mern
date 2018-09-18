@@ -9,6 +9,8 @@ import {
 	Label,
 	Input,
 	Container,
+  ListGroup,
+  ListGroupItem,
 	Row,
 	Col
 	} from 'reactstrap';
@@ -51,11 +53,14 @@ class PlanModal extends Component {
 		this.toggle();
 	}
 
-   componentDidUpdate() {
+   /*componentDidUpdate() {
 
-      this.props.getBlocks();
-      console.log(this.props.getBlocks())
+    const getBlocksWith = {
+      email: this.props.user.email,
     }
+      this.props.getBlocks();
+      console.log(this.props.getBlocks());
+    }*/
 
 	render() {
 		return (
@@ -67,184 +72,12 @@ class PlanModal extends Component {
 			<ModalBody>
 			<Form onSubmit={this.onSubmit}>
 			<FormGroup>
-			<Label for="plan"> Favorite places</Label>
+			<Label for="plan"> Type your favorite places separated with a semicolon e.g: ML;SD;Au </Label>
 			<Input type="text"
 			name="content"
 			id="content"
 			placeholder="{Add your favorite places}"
 			onChange={this.onChange}/>
-			<Container>
-        		<Row>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-        		</Row>
-        		<Row>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-        		</Row>
-        		<Row>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-        		</Row>
-        		<Row>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-        		</Row>
-        		<Row>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-          			<Col>
-          				<FormGroup check>
-          				<Label check>
-            			<Input type="checkbox" />{' '}
-            			Check me out
-          				</Label>
-        				</FormGroup>
-          			</Col>
-        		</Row>
-        	</Container>
 			<Button color= "dark"
 			style={{marginTop:'2rem'}}
 			block>Submit places</Button>
@@ -258,11 +91,9 @@ class PlanModal extends Component {
 }
 
 PlanModal.propTypes = {
-  getBlocks: PropTypes.func.isRequired,
   plan: PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({
 	plan: state.plan,
-  block: state.block
-})
-export default connect(mapStateToProps, {addPlan,getBlocks})(PlanModal);
+});
+export default connect(mapStateToProps, {addPlan})(PlanModal);
