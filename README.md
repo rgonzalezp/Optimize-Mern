@@ -15,7 +15,7 @@ Optimize application developed with the MERN stack
 
 - Create an useful tool that helps the community
 
-- Make a website that can become bigger and expandible into new domains
+- Make a website that can become bigger and expandable into new domains
 
 - Have fun!
 
