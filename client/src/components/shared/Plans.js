@@ -249,7 +249,7 @@ class Plans extends Component {
 		<MapComponent
       	latPos={this.state.latPos}
       	lngPos={this.state.lngPos}
-      	googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBT3yuFUUiTjKVE_8QHsTZD_Q11xKiMbto&v=3.exp&libraries=geometry,drawing,places"
+      	googleMapURL="YOUR GOOGLE API HERE"
       	loadingElement={<div style={{ height: `100%` }} />}
       	containerElement={<div style={{ height: `700px` }} />}
       	mapElement={<div style={{ height: `100%` }} />}
