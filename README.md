@@ -12,7 +12,7 @@ Optimize application developed with the MERN stack
 - [Copyright and license](#copyright-and-license)
 
 ## Demo
-https://optimizelocker.herokuapp.com/login
+https://optimizelocker.herokuapp.com
 
 ## Objectives
 - Show off programming and design abilities, building a full-stack fully functional application
