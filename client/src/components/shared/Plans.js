@@ -3,7 +3,6 @@ import {Container,ListGroup,ListGroupItem,Button} from 'reactstrap';
 import {connect} from 'react-redux';
 import {getPlans, deletePlan} from '../../actions/planActions';
 import PropTypes from 'prop-types';
-import Map from './Map';
 import {withGoogleMap,
      withScriptjs,
      GoogleMap,

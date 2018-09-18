@@ -27,7 +27,6 @@ import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import Plans from '../shared/Plans'
 import PlanModal from '../shared/PlanModal'
-import Map from '../shared/Map'
 import {Container} from 'reactstrap';
 
 const themeColor = createMuiTheme({
