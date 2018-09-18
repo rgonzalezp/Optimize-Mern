@@ -2,6 +2,7 @@
 Optimize application developed with the MERN stack
 
 ## Table of Contents
+- [Demo](#demo)
 - [Objectives](#objectives)
 - [Technologies](#technologies)
 - [Authors](#authors)
@@ -9,6 +10,9 @@ Optimize application developed with the MERN stack
 - [Documentation](#documentation)
 - [Preview](#preview)
 - [Copyright and license](#copyright-and-license)
+
+## Demo
+https://optimizelocker.herokuapp.com/login
 
 ## Objectives
 - Show off programming and design abilities, building a full-stack fully functional application
